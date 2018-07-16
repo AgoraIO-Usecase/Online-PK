@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">AgoraPKOnline</string>
 
     <string name="main_et_hint">请输入用户名</string>
-    <string name="main_btn_login">登陆</string>
+    <string name="main_btn_login">登录</string>
 
     <string name="chat_room_status">正在直播</string>
     <string name="chat_room_btn_watch">观看直播</string>

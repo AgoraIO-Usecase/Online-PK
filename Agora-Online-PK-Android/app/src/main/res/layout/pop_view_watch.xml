@@ -27,6 +27,6 @@
             android:background="@drawable/main_btn_style"
             android:textColor="@color/agora_white"
             android:textSize="14sp"
-            android:text="@string/chat_room_btn_watch"/>
+            android:text="请输入用户名"/>
     </LinearLayout>
 </FrameLayout>

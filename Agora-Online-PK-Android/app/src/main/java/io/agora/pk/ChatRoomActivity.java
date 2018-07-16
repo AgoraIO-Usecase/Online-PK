@@ -247,7 +247,6 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
     }
 
     public void sendChatMessage(final String message) {
-        Log.e("wbsTest-->", message);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -340,7 +339,6 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
             public void run() {
                 localUid = uid;
                 mUserList.add(localUid);
-                sendChatMessage("JoinChannel Success:" + channel + ":" + uid);
                 if (isPKnow) {
                     changeViewToPkBroadcaster();
                     setLocalPkLeftView(uid);
@@ -362,7 +360,6 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
             @Override
             public void run() {
                 if (mUserList.size() < 2) {
-                    sendChatMessage("onUserJoined:" + uid);
                     mUserList.add(uid);
                     setLiveTranscoding();
                     setRemotePkRightView(uid);
@@ -374,17 +371,14 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
 
     @Override
     public void onStreamPublished(String url, int error) {
-        sendChatMessage("onStreamPublished");
     }
 
     @Override
     public void onStreamUnpublished(String url) {
-        sendChatMessage("onStreamUnpublished");
     }
 
     @Override
     public void onError(int err) {
-        sendChatMessage("onError:" + err);
     }
 
     @Override
@@ -404,7 +398,6 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
 
     @Override
     public void onLeaveChannel(IRtcEngineEventHandler.RtcStats stats) {
-        sendChatMessage("leave media channel");
         liveTranscoding = null;
     }
 
@@ -432,17 +425,14 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
     //--------------------------------------------------
     @Override
     public void onChannelJoined(final String channelID) {
-        sendChatMessage("signal login success:" + channelID);
     }
 
     @Override
     public void onChannelJoinFailed(String channelID, int ecode) {
-        sendChatMessage("signal login failed:" + ecode);
     }
 
     @Override
     public void onChannelUserJoined(final String account, int uid) {
-        sendChatMessage("onSignalUserJoined:" + account);
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -463,7 +453,6 @@ public class ChatRoomActivity extends BaseActivity implements IMediaEngineHandle
 
     @Override
     public void onError(String name, int ecode, String desc) {
-        sendChatMessage("signal onError:" + ecode + ":" + name + ":" + desc);
     }
 
     @Override

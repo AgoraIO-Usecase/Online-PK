@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mEtUserAccount = findViewById(R.id.et_main_account_name);
-        mEtUserAccount.setText(StringUtils.random(10));
+//        mEtUserAccount.setText(StringUtils.random(10));
     }
 
     public void onLoginClicked(View v){
