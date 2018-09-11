@@ -1,0 +1,4 @@
+include ':app'
+include ':ijkplayer-armv7a'
+include ':ijkplayer-java'
+include ':ijkplayer-exo'

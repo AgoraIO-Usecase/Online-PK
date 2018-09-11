@@ -85,7 +85,7 @@ class RoomViewController: UIViewController {
     }
     
     lazy var agoraSignal: AgoraMessageTubeKit = {
-        let signalKit = AgoraMessageTubeKit.sharedMessageTubeKit(withAppId: KeyCenter.AppId)
+        let signalKit = AgoraMessageTubeKit.sharedMessageTubeKit(withAppId: KeyCenter.AppId, workMode: .joinChannelOnly)
         signalKit?.delegate = self
         return signalKit!
     }()
