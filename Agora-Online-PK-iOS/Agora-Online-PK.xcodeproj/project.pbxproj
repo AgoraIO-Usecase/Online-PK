@@ -464,8 +464,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Agora-Online-PK/",
-					"$(PROJECT_DIR)/Agora-Online-PK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Agora-Online-PK/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -493,8 +492,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Agora-Online-PK/",
-					"$(PROJECT_DIR)/Agora-Online-PK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Agora-Online-PK/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

@@ -303,7 +303,7 @@ private extension RoomViewController {
             
             let liveTranscoding = AgoraLiveTranscoding()
 
-            liveTranscoding.transcodingUsers = [localUser.uid : localUser] as [NSNumber : AgoraLiveTranscodingUser]
+            liveTranscoding.transcodingUsers = [localUser]
             liveTranscoding.size = CGSize(width: 360, height: 640)
             liveTranscoding.videoBitrate = 1200
             liveTranscoding.videoFramerate = 15
@@ -311,13 +311,13 @@ private extension RoomViewController {
             
             agoraKit.setLiveTranscoding(liveTranscoding)
         case 2:
-            var uses = [UInt : AgoraLiveTranscodingUser]()
+            var uses = [AgoraLiveTranscodingUser]()
             let localUser = AgoraLiveTranscodingUser()
             localUser.uid = (self.localSession?.uid)!
             localUser.rect = CGRect(x: 0, y: 0, width: 360, height: 640)
             localUser.zOrder = 1
             localUser.audioChannel = 0
-            uses[localUser.uid] = localUser
+            uses.append(localUser)
             
             if self.remoteSession != nil {
                 let removeUser = AgoraLiveTranscodingUser()
@@ -325,11 +325,11 @@ private extension RoomViewController {
                 removeUser.rect = CGRect(x: 360, y: 0, width: 360, height: 640)
                 removeUser.zOrder = 1
                 removeUser.audioChannel = 0
-                uses[removeUser.uid] = removeUser
+                uses.append(removeUser)
             }
             
             let liveTranscoding = AgoraLiveTranscoding()
-            liveTranscoding.transcodingUsers = uses as [NSNumber : AgoraLiveTranscodingUser]
+            liveTranscoding.transcodingUsers = uses
             liveTranscoding.size = CGSize(width: 720, height: 640)
             liveTranscoding.videoBitrate = 1200
             liveTranscoding.videoFramerate = 15
