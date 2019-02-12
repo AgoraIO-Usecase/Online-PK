@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 
-import io.agora.pk.engine.IMediaEngineHandler;
+import io.agora.pk.model.AGEventHandler;
 import io.agora.pk.utils.PKConstants;
 import io.agora.pk.utils.StringUtils;
 import io.agora.rtc.Constants;
@@ -28,7 +28,7 @@ import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
 
-public class PKBroadcasterActivity extends BaseActivity implements IMediaEngineHandler {
+public class PKBroadcasterActivity extends BaseActivity implements AGEventHandler {
 
     private static final String TAG = "PKBroadcaster";
 
@@ -89,7 +89,7 @@ public class PKBroadcasterActivity extends BaseActivity implements IMediaEngineH
     }
 
     public void initEngine() {
-        workThread().handler().addEventHandler(this);
+        event().addEventHandler(this);
 
         workThread().configEngine(mClientRole);
         if (mClientRole == Constants.CLIENT_ROLE_BROADCASTER) {

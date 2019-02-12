@@ -1,14 +1,13 @@
 package io.agora.pk;
 
 import android.app.Application;
-import android.content.Context;
 
 import java.lang.ref.WeakReference;
 
-import io.agora.pk.engine.WorkThread;
+import io.agora.pk.model.WorkerThread;
 
 public class PKApplication extends Application {
-    private WorkThread workThread;
+    private WorkerThread mWorkerThread;
     private PKConfig pkConfig;
 
     @Override
@@ -19,16 +18,16 @@ public class PKApplication extends Application {
         }
     }
 
-    public synchronized void initWorkThread(){
-        if (workThread == null) {
-            workThread = new WorkThread(new WeakReference<>(getApplicationContext()));
-            workThread.start();
-            workThread.waitForReady();
+    public synchronized void initWorkerThread(){
+        if (mWorkerThread == null) {
+            mWorkerThread = new WorkerThread(new WeakReference<>(getApplicationContext()));
+            mWorkerThread.start();
+            mWorkerThread.waitForReady();
         }
     }
 
-    public synchronized WorkThread getWorkThread() {
-        return workThread;
+    public synchronized WorkerThread getWorkerThread() {
+        return mWorkerThread;
     }
 
     public synchronized PKConfig getPkConfig() {

@@ -1,4 +1,4 @@
-package io.agora.pk.engine;
+package io.agora.pk.model;
 
 import android.util.Log;
 
@@ -7,21 +7,21 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import io.agora.rtc.IRtcEngineEventHandler;
 
-public class MediaEngineHandler {
+public class MyEngineEventHandler {
 
-    private ConcurrentHashMap<Integer, IMediaEngineHandler> handlers = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Integer, AGEventHandler> handlers = new ConcurrentHashMap<>();
 
-    public void addEventHandler(IMediaEngineHandler handler) {
+    public void addEventHandler(AGEventHandler handler) {
         handlers.put(0, handler);
     }
 
-    public void removeEventHandler(IMediaEngineHandler handler) {
+    public void removeEventHandler(AGEventHandler handler) {
         handlers.remove(0);
     }
 
     private static final String LOG_TAG = "AG_EVT";
 
-    final IRtcEngineEventHandler engineEventHandler = new IRtcEngineEventHandler() {
+    final IRtcEngineEventHandler mEventHandlerList = new IRtcEngineEventHandler() {
         @Override
         public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
             Log.e(LOG_TAG, "success");
@@ -31,7 +31,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onJoinChannelSuccess(channel, uid, elapsed);
             }
@@ -45,7 +45,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 this.onJoinChannelSuccess(channel, uid, elapsed);
             }
@@ -60,7 +60,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onUserJoined(uid, elapsed);
             }
@@ -75,7 +75,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onStreamPublished(url, error);
             }
@@ -90,7 +90,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onStreamUnpublished(url);
             }
@@ -105,7 +105,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onError(err);
             }
@@ -120,7 +120,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onUserOffline(uid, reason);
             }
@@ -134,7 +134,7 @@ public class MediaEngineHandler {
                 return;
             }
 
-            Iterator<IMediaEngineHandler> it = handlers.values().iterator();
+            Iterator<AGEventHandler> it = handlers.values().iterator();
             while (it.hasNext()) {
                 it.next().onLeaveChannel(stats);
             }

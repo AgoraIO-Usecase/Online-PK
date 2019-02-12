@@ -1,4 +1,4 @@
-package io.agora.pk.engine;
+package io.agora.pk.model;
 
 import android.content.Context;
 import android.os.Handler;
@@ -16,8 +16,8 @@ import io.agora.rtc.Constants;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
 
-public class WorkThread extends Thread {
-    private final static String TAG = WorkThread.class.getName();
+public class WorkerThread extends Thread {
+    private final static String TAG = WorkerThread.class.getName();
 
     private final Context mContext;
 
@@ -35,14 +35,14 @@ public class WorkThread extends Thread {
 
     private RtcEngine mRtcEngine;
     private WorkerThreadHandler mWorkerHandler;
-    private MediaEngineHandler mMediaEngineHandler;
+    private MyEngineEventHandler mMyEngineEventHandler;
 
     private boolean mReady = false;
 
     private static final class WorkerThreadHandler extends Handler {
-        private WorkThread mWorkerThread;
+        private WorkerThread mWorkerThread;
 
-        public WorkerThreadHandler(WorkThread thread) {
+        public WorkerThreadHandler(WorkerThread thread) {
             this.mWorkerThread = thread;
         }
 
@@ -81,9 +81,9 @@ public class WorkThread extends Thread {
         }
     }
 
-    public WorkThread(WeakReference<Context> ctx) {
+    public WorkerThread(WeakReference<Context> ctx) {
         this.mContext = ctx.get();
-        this.mMediaEngineHandler = new MediaEngineHandler();
+        this.mMyEngineEventHandler = new MyEngineEventHandler();
     }
 
     public void waitForReady() {
@@ -118,7 +118,7 @@ public class WorkThread extends Thread {
             throw new RuntimeException("You need to provide a valid Agora App Id");
 
         try {
-            mRtcEngine = RtcEngine.create(mContext, mContext.getString(R.string.agora_app_id), mMediaEngineHandler.engineEventHandler);
+            mRtcEngine = RtcEngine.create(mContext, mContext.getString(R.string.agora_app_id), mMyEngineEventHandler.mEventHandlerList);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -130,8 +130,8 @@ public class WorkThread extends Thread {
         return mRtcEngine;
     }
 
-    public MediaEngineHandler handler() {
-        return mMediaEngineHandler;
+    public MyEngineEventHandler eventHandler() {
+        return mMyEngineEventHandler;
     }
 
     /**

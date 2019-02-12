@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.graphics.Path;
 import android.graphics.Region;
+import android.os.Build;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
@@ -56,7 +57,13 @@ public class CircleImageView extends AppCompatImageView {
         cns.drawCircle(w / 2.0f, h / 2.0f, Math.min(w / 2.0f, h / 2.0f) + 1.5f, paint);
         cns.save();
         cns.setDrawFilter(mPaintFlagsDrawFilter);
-        cns.clipPath(path, Region.Op.REPLACE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            cns.clipPath(path);
+        } else {
+            cns.clipPath(path, Region.Op.REPLACE);
+        }
+
         cns.setDrawFilter(mPaintFlagsDrawFilter);
         cns.drawColor(Color.WHITE);
         super.onDraw(cns);

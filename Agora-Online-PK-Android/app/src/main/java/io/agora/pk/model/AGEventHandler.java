@@ -1,8 +1,8 @@
-package io.agora.pk.engine;
+package io.agora.pk.model;
 
 import io.agora.rtc.IRtcEngineEventHandler;
 
-public interface IMediaEngineHandler {
+public interface AGEventHandler {
     void onJoinChannelSuccess(String channel, int uid, int elapsed);
 
     void onUserJoined(int uid, int elapsed);

@@ -7,7 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import io.agora.pk.engine.WorkThread;
+import io.agora.pk.model.MyEngineEventHandler;
+import io.agora.pk.model.WorkerThread;
 import io.agora.pk.utils.PKConstants;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.live.LiveTranscoding;
@@ -16,7 +17,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((PKApplication) getApplication()).initWorkThread();
+        ((PKApplication) getApplication()).initWorkerThread();
     }
 
     @Override
@@ -30,11 +31,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void deInitUIandEvent();
 
     protected RtcEngine rtcEngine() {
-        return ((PKApplication) getApplication()).getWorkThread().rtcEngine();
+        return ((PKApplication) getApplication()).getWorkerThread().rtcEngine();
     }
 
-    protected WorkThread workThread() {
-        return ((PKApplication) getApplication()).getWorkThread();
+    protected WorkerThread workThread() {
+        return ((PKApplication) getApplication()).getWorkerThread();
+    }
+
+    protected final MyEngineEventHandler event() {
+        return ((PKApplication) getApplication()).getWorkerThread().eventHandler();
     }
 
     // set LiveTranscoding property for each user
