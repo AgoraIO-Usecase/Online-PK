@@ -35,7 +35,7 @@
 
 ![PK 连麦架构设计](Image/ArchitectureDesign.png)
 
-声网已在 GitHub 提供了 Android 平台的 [实现代码](https://github.com/AgoraIO/ARD-Agora-Online-PK/tree/master/Agora-Online-PK-Android)。你也可以下载实现的 [apk 文件](https://pan.baidu.com/s/1T7Psw5KxNkSsYRPiTTB7Dg) 下载密码请联系声网客服 sales@agora.io 。
+声网已在 GitHub 提供了 Android 平台的 [实现代码](https://github.com/AgoraIO/ARD-Agora-Online-PK/tree/master/Agora-Online-PK-Android)。你也可以下载实现的 [apk 文件](https://github.com/AgoraIO-Usecase/Online-PK/releases/download/v1.0/Agora-PK-Online.apk)。
 
 ## API 列表
 示例 App 的 API 流程如下图所示。

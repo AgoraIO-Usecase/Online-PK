@@ -1,28 +1,30 @@
-# ARD-Agora-Online-PK
+# Online PK
 
-# **Agora PK Hosting**
+*Other Languages: [中文](README.zh.md)*
+
+## **Agora PK Hosting**
 
 The Agora PK Hosting solution is designed for CDN Live push-and-pull stream scenarios that involve switching between the following scenarios:
 
 - Co-hosting in Standard mode
 - Co-hosting in PK mode
 
-# Co-hosting in Standard Mode
+## Co-hosting in Standard Mode
 
 The hosts can use third-party applications such as ijkplayer to push streams to CDN Live. The push stream address for the hosts are independent and the audience can only see the corresponding host.
 
-# Co-hosting in PK Mode
+## Co-hosting in PK Mode
 
 The hosts need to quit the CDN Live push stream process, join the same Agora channel, and set the co-hosting composite mode on the Agora server using the _setLiveTranscoding_ API method; then push the composite stream to the original CDN address using the push stream _addPublishStreamUrl_ API method.
 
 The CDN Live audience can then participate in the PK between the hosts. The CDN Live audience does not need to change the CDN Live URL address as the hosts will still use the previous CDN Live push stream URL address. When either one of the hosts quit the Agora channel, the other host will switch to the Standard mode.
 
-# **Architectural Design**
+## **Architectural Design**
 ![ArchitectureDesign.png](Image/ArchitectureDesign_EN.png)
 
-You can find the Agora [implementation code](https://github.com/AgoraIO/ARD-Agora-Online-PK/tree/master/Agora-Online-PK-Android) for Android on Github. You can also download the [APK file](https://pan.baidu.com/share/init?surl=T7Psw5KxNkSsYRPiTTB7Dg) and request for a password by contacting [sales@Agora.io](mailto:sales@agora.io).
+You can find the Agora [implementation code](https://github.com/AgoraIO/ARD-Agora-Online-PK/tree/master/Agora-Online-PK-Android) for Android on Github. You can also download the [APK file](https://github.com/AgoraIO-Usecase/Online-PK/releases/download/v1.0/Agora-PK-Online.apk).
 
-# **API methods**
+## **API methods**
 
 ![PK 连麦架构设计](Image/API_list_EN.png)
 
@@ -40,7 +42,7 @@ iOS|Android
 [removePublishStreamUrl](https://docs.agora.io/en/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS#removepublishstreamurl)|[removePublishStreamUrl](https://docs.agora.io/en/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android#removepublishstreamurl)
 [leaveChannel](https://docs.agora.io/en/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/leaveChannel:)|[leaveChannel](https://docs.agora.io/en/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a2929e4a46d5342b68d0deb552c29d597)
 
-# **Implementation**
+## **Implementation**
 
 - The Agora PK Hosting solution uses the Agora Video SDK in the communication mode.
 
@@ -56,14 +58,14 @@ iOS|Android
 2. Each host needs to push the stream to the original CDN URL address.
 
 
-# **Integration Guide**
+## **Integration Guide**
 
-# Integration SDK
+### Integration SDK
 
 - For Android, see [Configuring the DEV runtime](https://docs.agora.io/en/Interactive%20Broadcast/android_video?platform=Android).
 - For IOS, see [Configuring the DEV runtime.](https://docs.agora.io/en/Interactive%20Broadcast/ios_video?platform=iOS)
 
-# Switching Between the Co-hosting Standard Mode and Co-hosting PK Mode
+### Switching Between the Co-hosting Standard Mode and Co-hosting PK Mode
 
 _Android_:
 
