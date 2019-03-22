@@ -33,7 +33,27 @@
 
 下图为一起 PK 连麦场景的声网实现架构图：
 
-![PK 连麦架构设计](Image/competing_hosts.png)
+![PK 连麦架构设计](Image/ArchitectureDesign.png)
+
+声网已在 GitHub 提供了 Android 平台的 [实现代码](https://github.com/AgoraIO/ARD-Agora-Online-PK/tree/master/Agora-Online-PK-Android)。你也可以下载实现的 [apk 文件](https://pan.baidu.com/s/1T7Psw5KxNkSsYRPiTTB7Dg) 下载密码请联系声网客服 sales@agora.io 。
+
+## API 列表
+示例 App 的 API 流程如下图所示。
+![PK 连麦架构设计](Image/API_list.png)
+
+Agora SDK 关键 API 列表：
+
+iOS|Android
+---|---
+[sharedEngineWithAppId:delegate:](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/sharedEngineWithAppId:delegate:)|[create](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a35466f690d0a9332f24ea8280021d5ed)
+[setChannelProfile](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/setChannelProfile:)|[setChannelProfile](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a1bfb76eb4365b8b97648c3d1b69f2bd6)
+[setClientRole](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/setClientRole:)|[setClientRole](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#aa2affa28a23d44d18b6889fba03f47ec)
+[enableVideo](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/enableVideo)|[enableVideo](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a99ae52334d3fa255dfcb384b78b91c52)
+[joinChannel](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/joinChannelByToken:channelId:info:uid:joinSuccess:)|[joinChannel](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a8b308c9102c08cb8dafb4672af1a3b4c)
+[setLiveTranscoding](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS#livetranscoding-ios)|[setLiveTranscoding](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android#setlivetranscoding)
+[addPublishStreamUrl](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS#addpublishstreamurl-transcodingenabled)|[addPublishStreamUrl](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android#addpublishstreamurl)
+[removePublishStreamUrl](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS#removepublishstreamurl)|[removePublishStreamUrl](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_android?platform=Android#removepublishstreamurl)
+[leaveChannel](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/leaveChannel:)|[leaveChannel](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a2929e4a46d5342b68d0deb552c29d597)
 
 ## 集成步骤
 
@@ -58,7 +78,7 @@
 * 声网 PK 连麦方案采用直播模式的 Agora Video SDK。
 * 从单主播模式进入 PK 模式时，每个主播都需要退出原来的旁路推流。
 * 从单主播模式进入 PK 模式时，各位主播需要同时加入同一声网频道，可由 APP 控制实现。
-* PK 模式下，每个主播都需要设置合图（setLiveTranscoding，[Android](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a3cb9804ae71819038022d7575834b88c),  [iOS](hhttps://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/setLiveTranscoding:)）, 并重新添加 CDN 推流地址（addPublishStreamUrl，[Android](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a4445b4ca9509cc4e2966b6d308a8f08f),  [iOS](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/addPublishStreamUrl:transcodingEnabled:)）
+* PK 模式下，每个主播都需要设置合图（setLiveTranscoding，[Android](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a3cb9804ae71819038022d7575834b88c),  [iOS](https://docs.agora.io/cn/2.3.1/product/Interactive%20Broadcast/API%20Reference/live_video_ios?platform=iOS#livetranscoding-ios)）, 并重新添加 CDN 推流地址（addPublishStreamUrl，[Android](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#a4445b4ca9509cc4e2966b6d308a8f08f),  [iOS](https://docs.agora.io/cn/Interactive%20Broadcast/API%20Reference/oc/Classes/AgoraRtcEngineKit.html#//api/name/addPublishStreamUrl:transcodingEnabled:)）
 * PK 模式下，设置合图（setLiveTranscoding）和添加 CDN 推流地址（addPublishStreamUrl）需要在声网频道内进行。
 * PK 模式下，双方主播的 CDN 推流地址应与普通模式时选用的 URL 地址一致确保 CDN 观众无需切换 CDN 地址。
 * PK 模式下，只要有一位主播退出声网频道，其余主播也同时退出声网频道进入单主播模式，可由 APP 控制实现。
