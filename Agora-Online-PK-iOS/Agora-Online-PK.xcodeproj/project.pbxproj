@@ -26,7 +26,8 @@
 		0F8F03AE20C63C1D00E0F395 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8F03AD20C63C1D00E0F395 /* libresolv.tbd */; };
 		0F8F03B620C67ABD00E0F395 /* PopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8F03B520C67ABD00E0F395 /* PopView.swift */; };
 		0F8F03B820C67E8C00E0F395 /* PopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8F03B720C67E8C00E0F395 /* PopView.xib */; };
-		A730EFC32101CC47003174AD /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A730EFC02101CC47003174AD /* AgoraRtcEngineKit.framework */; };
+		3802EF3A225CC7290065A2E1 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3802EF39225CC7280065A2E1 /* CoreML.framework */; };
+		3802EF3B225CC7A40065A2E1 /* AgoraRtcEngineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A730EFC02101CC47003174AD /* AgoraRtcEngineKit.framework */; };
 		A7B5417D20BF9C3F0023FE2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B5417C20BF9C3F0023FE2E /* AppDelegate.swift */; };
 		A7B5418220BF9C3F0023FE2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B5418020BF9C3F0023FE2E /* Main.storyboard */; };
 		A7B5418420BF9C400023FE2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B5418320BF9C400023FE2E /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		0F8F03AD20C63C1D00E0F395 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		0F8F03B520C67ABD00E0F395 /* PopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopView.swift; sourceTree = "<group>"; };
 		0F8F03B720C67E8C00E0F395 /* PopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopView.xib; sourceTree = "<group>"; };
+		3802EF39225CC7280065A2E1 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		A730EFC02101CC47003174AD /* AgoraRtcEngineKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcEngineKit.framework; path = "Agora-Online-PK/AgoraRtcEngineKit.framework"; sourceTree = "<group>"; };
 		A7B5417920BF9C3F0023FE2E /* Agora-Online-PK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agora-Online-PK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B5417C20BF9C3F0023FE2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A730EFC32101CC47003174AD /* AgoraRtcEngineKit.framework in Frameworks */,
+				3802EF3A225CC7290065A2E1 /* CoreML.framework in Frameworks */,
 				0F8F03AE20C63C1D00E0F395 /* libresolv.tbd in Frameworks */,
 				0F8F03AC20C63C1100E0F395 /* SystemConfiguration.framework in Frameworks */,
 				0F8F03A820C63BF600E0F395 /* CoreMedia.framework in Frameworks */,
@@ -90,6 +92,7 @@
 				0F8F039C20C63BAE00E0F395 /* VideoToolbox.framework in Frameworks */,
 				0F8F039A20C63B6900E0F395 /* Accelerate.framework in Frameworks */,
 				A7B541A320BF9ED10023FE2E /* libc++.tbd in Frameworks */,
+				3802EF3B225CC7A40065A2E1 /* AgoraRtcEngineKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +172,7 @@
 		A7B5419E20BF9EC90023FE2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3802EF39225CC7280065A2E1 /* CoreML.framework */,
 				A730EFC02101CC47003174AD /* AgoraRtcEngineKit.framework */,
 				0F18676020CF6CE20062CB18 /* MobileCoreServices.framework */,
 				0F18675E20CF6CD90062CB18 /* MediaPlayer.framework */,
@@ -427,6 +431,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Agora-Online-PK",
 				);
 				INFOPLIST_FILE = "Agora-Online-PK/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -455,6 +460,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Agora-Online-PK",
 				);
 				INFOPLIST_FILE = "Agora-Online-PK/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
