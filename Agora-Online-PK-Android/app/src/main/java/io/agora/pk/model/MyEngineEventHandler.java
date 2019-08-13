@@ -38,20 +38,6 @@ public class MyEngineEventHandler {
         }
 
         @Override
-        public void onRejoinChannelSuccess(String channel, int uid, int elapsed) {
-            super.onRejoinChannelSuccess(channel, uid, elapsed);
-
-            if (handlers.isEmpty()) {
-                return;
-            }
-
-            Iterator<AGEventHandler> it = handlers.values().iterator();
-            while (it.hasNext()) {
-                this.onJoinChannelSuccess(channel, uid, elapsed);
-            }
-        }
-
-        @Override
         public void onUserJoined(int uid, int elapsed) {
             Log.e(LOG_TAG, "joined");
             super.onUserJoined(uid, elapsed);
