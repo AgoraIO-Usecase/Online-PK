@@ -62,12 +62,12 @@ iOS|Android
 **PK 场景需要实现以下功能：**
 
 1. 集成声网 SDK 实现视频直播
-	* Android, 详见 [集成客户端](https://docs.agora.io/cn/Interactive%20Broadcast/android_video?platform=Android)
-	* iOS, 详见 [集成客户端](https://docs.agora.io/cn/Interactive%20Broadcast/ios_video?platform=iOS)
+	* Android, 详见 [集成客户端](https://docs.agora.io/cn/Interactive%20Broadcast/start_live_android?platform=Android)
+	* iOS, 详见 [集成客户端](https://docs.agora.io/cn/Interactive%20Broadcast/start_live_ios?platform=iOS)
 
 2. 实现 CDN 推流，和服务器合图
- 	* Android, 详见 [推流到 CDN ](https://docs.agora.io/cn/Interactive%20Broadcast/push_stream_android2.0?platform=Android)
-	* iOS, 详见 [推流到 CDN ](https://docs.agora.io/cn/Interactive%20Broadcast/push_stream_ios2.0?platform=iOS)
+ 	* Android, 详见 [推流到 CDN ](https://docs.agora.io/cn/Interactive%20Broadcast/cdn_streaming_android?platform=Android)
+	* iOS, 详见 [推流到 CDN ](https://docs.agora.io/cn/Interactive%20Broadcast/cdn_streaming_apple?platform=iOS)
 
 3. 实现第三方推流，拉流（可选）
 	* 如单主播模式需要使用第三方推流工具，需要自行集成第三方推流。
