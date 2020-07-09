@@ -20,7 +20,7 @@ let pkViewWidth = ScreenWidth / 2.0
 let pkViewHeight = ScreenWidth / 9.0 * 8
 
 /// RTMP Push URL
-let pushUrl = "rtmp://vid-218.push.chinanetcenter.broadcastapp.agora.io/live/"
+let pushUrl = <##YOUR PUBLISH RTMP URL##>;
 
 /// RTMP Pull URL
-let pullUrl = "rtmp://vid-218.pull.chinanetcenter.broadcastapp.agora.io/live/"
+let pullUrl = <##YOUR PLAY RTMP URL##>;
