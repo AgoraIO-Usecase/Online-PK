@@ -17,6 +17,6 @@ public class PKConstants {
     public final static int LIVE_TRANSCODING_FPS = 15;
     public final static int LIVE_TRANSCODING_BITRATE = 1200;
 
-    public final static String PUBLISH_URL = "rtmp://vid-218.push.chinanetcenter.broadcastapp.agora.io/live/";
-    public final static String PUBLISH_PULL_URL = "rtmp://vid-218.pull.chinanetcenter.broadcastapp.agora.io/live/";
+    public final static String PUBLISH_URL = <##YOUR PUBLISH RTMP URL##>;
+    public final static String PUBLISH_PULL_URL = <##YOUR PLAY RTMP URL##>;
 }
